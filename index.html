@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
 
-    <title>reveal.js - The HTML Presentation Framework</title>
+    <title>Loops on loops on loops</title>
 
-    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-    <meta name="author" content="Hakim El Hattab">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -40,340 +40,481 @@
 
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
-        <section>
-          <h1>Reveal.js</h1>
-          <h3>The HTML Presentation Framework</h3>
-          <p>
-            <small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-          </p>
-        </section>
 
-        <section>
-          <h2>Hello There</h2>
-          <p>
-            reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-          </p>
-        </section>
-
-        <!-- Example of nested vertical slides -->
-        <section>
           <section>
-            <h2>Vertical Slides</h2>
-            <p>Slides can be nested inside of each other.</p>
-            <p>Use the <em>Space</em> key to navigate through all slides.</p>
-            <br>
-            <a href="#" class="navigate-down">
-              <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-            </a>
-          </section>
-          <section>
-            <h2>Basement Level 1</h2>
-            <p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-          </section>
-          <section>
-            <h2>Basement Level 2</h2>
-            <p>That's it, time to go back up.</p>
-            <br>
-            <a href="#/2">
-              <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-            </a>
-          </section>
-        </section>
 
-        <section>
-          <h2>Slides</h2>
-          <p>
-            Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-          </p>
-        </section>
+            <h1>Loops on loops on loops</h1>
 
-        <section>
-          <h2>Point of View</h2>
-          <p>
-            Press <strong>ESC</strong> to enter the slide overview.
-          </p>
-          <p>
-            Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-          </p>
-        </section>
+            <p>It's about Iterables and Iterators</p>
 
-        <section>
-          <h2>Touch Optimized</h2>
-          <p>
-            Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-          </p>
-        </section>
+            <br />
 
-        <section data-markdown>
-          <script type="text/template">
-            ## Markdown support
-
-            Write content using inline or external Markdown.
-            Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-            ```
-            <section data-markdown>
-              ## Markdown support
-
-              Write content using inline or external Markdown.
-              Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-            </section>
-            ```
-          </script>
-        </section>
-
-        <section>
-          <section id="fragments">
-            <h2>Fragments</h2>
-            <p>Hit the next arrow...</p>
-            <p class="fragment">... to step through ...</p>
-            <p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
+            <p>Garrett Dawson</p>
+            <p>@killtheliterate</p>
 
             <aside class="notes">
-              This slide has fragments which are also stepped through in the notes window.
+              <p>I've been a front-end dev of 5 years. I work at VictorOps</p>
+              <p>I love JavaScript</p>
+              <p>What will people discover with es2015 onwards?</p>
+            </aside>
+
+          </section>
+
+          <section>
+            <h1>Loops Are Programming</h1>
+
+            <ul>
+                <li class="fragment">Loops are a fundamental</li>
+                <li class="fragment">Without them... there is no program</li>
+                <li class="fragment">You need loops and variables to be a programming language</li>
+            </ul>
+
+            <aside class="notes">
+              <p>We take this for granted, unless we're computer scientists</p>
+              <p>The ability to repeat is necessary to be Turing complete</p>
+              <p>In a sense, the description of how to perform a loop is just syntax</p>
             </aside>
           </section>
+
           <section>
-            <h2>Fragment Styles</h2>
-            <p>There's different types of fragments, like:</p>
-            <p class="fragment grow">grow</p>
-            <p class="fragment shrink">shrink</p>
-            <p class="fragment fade-out">fade-out</p>
-            <p class="fragment current-visible">current-visible</p>
-            <p class="fragment highlight-red">highlight-red</p>
-            <p class="fragment highlight-blue">highlight-blue</p>
+            <h1>First...</h1>
+
+            <p>Ada Lovelace and the Analytical Engine</p>
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Ada_Lovelace.jpg" alt="Ada Lovelace.jpg" height="480" width="302">
+
+            <aside class="notes">
+              <p>Loops began with Ada Lovelace. Bernoulli numbers and the analytical engine.</p>
+              <p>They've obviously evolved, though the construct remains relatively unchanged</p>
+              <a>https://programmers.stackexchange.com/questions/149465/who-created-the-ideas-of-the-first-loop-constructs</a>
+            </aside>
           </section>
-        </section>
 
-        <section id="transitions">
-          <h2>Transition Styles</h2>
-          <p>
-            You can select from different transitions, like: <br>
-            <a href="?transition=none#/transitions">None</a> -
-            <a href="?transition=fade#/transitions">Fade</a> -
-            <a href="?transition=slide#/transitions">Slide</a> -
-            <a href="?transition=convex#/transitions">Convex</a> -
-            <a href="?transition=concave#/transitions">Concave</a> -
-            <a href="?transition=zoom#/transitions">Zoom</a>
-          </p>
-        </section>
+          <section>
+            <h1>And Some Other Things...</h1>
 
-        <section id="themes">
-          <h2>Themes</h2>
-          <p>
-            reveal.js comes with a few themes built in: <br>
-            <!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-          </p>
-        </section>
+<pre><code>
+  ****** Algol 60 ******
+  FOR i:=1 UNTIL 5 DO
+     FOR j:=1 UNTIL i DO
+        OUTTEXT("*");
+     OUTLINE
 
-        <section>
-          <section data-background="#dddddd">
-            <h2>Slide Backgrounds</h2>
-            <p>
-              Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-            </p>
-            <a href="#" class="navigate-down">
-              <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-            </a>
+</code></pre>
+
+            <aside class="notes">
+            </aside>
           </section>
-          <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-            <h2>Image Backgrounds</h2>
-            <pre><code>&lt;section data-background="image.png"&gt;</code></pre>
+
+          <section>
+            <h1>You're probably a JS developer</h1>
+            <p>...at least sometimes</p>
+
+            <aside class="notes">
+            </aside>
           </section>
-          <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-            <h2>Tiled Backgrounds</h2>
-            <pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
+
+          <section>
+            <h1>The Ancient</h1>
+
+            <p>for loops</p>
+
+<pre><code>
+  const theThing = ['hello', 'humans', 'in', 'this', 'room']
+
+  for(let i = 0; i < theThing.length; i = i + 1) {
+    console.log(theThing[i])
+  }
+
+</code></pre>
+
+            <aside class="notes">
+              <p>Ancient and venerated</p>
+              <p>Obviously, problems</p>
+            </aside>
           </section>
-          <section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-            <div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-              <h2>Video Backgrounds</h2>
-              <pre><code style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-            </div>
+
+          <section>
+            <h1>Goodish Ideas</h1>
+
+            <p>for-in loops</p>
+
+<pre><code>
+  const otherThing = ['hello', 'humans', 'in', 'this', 'room']
+
+  for(let i in otherThing) {
+    console.log(otherThing[i]) // hello, humans...
+  }
+
+</code></pre>
+
+            <aside class="notes">
+              <p></p>
+            </aside>
           </section>
-          <section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-            <h2>... and GIFs!</h2>
+
+          <section>
+            <h1>Badish Ideas</h1>
+
+            <p>hehe</p>
+
+<pre><code>
+  const otherThing = ['hello', 'humans', 'in', 'this', 'room']
+
+  otherThing.justLeavingThisHere = 'BOOOOOOOOOO'
+
+  // hello, humans... BOOOOOOOOOO
+  for(let i in otherThing) {
+    console.log(otherThing[i])
+  }
+
+</code></pre>
+
+            <aside class="notes">
+              <p></p>
+            </aside>
           </section>
-        </section>
 
-        <section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-          <h2>Background Transitions</h2>
-          <p>
-            Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-          </p>
-          <pre><code>Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-        </section>
+          <section>
+            <h1>Better Ideas</h1>
 
-        <section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-          <h2>Background Transitions</h2>
-          <p>
-            You can override background transitions per-slide.
-          </p>
-          <pre><code style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-        </section>
+            <p></p>
 
-        <section>
-          <h2>Pretty Code</h2>
-          <pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
+<pre><code>
+  const otherThing = ['hello', 'humans', 'in', 'this', 'room']
 
-    var nodes = document.querySelectorAll( selector );
+  otherThing.justLeavingThisHere = 'BOOOOOOOOOO'
 
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
+  // hello, humans... no booo
+  otherThing.forEach(el => console.log(el))
 
-      if( !node.className ) {
-        node.className += ' roll';
-      }
+</code></pre>
+
+            <aside class="notes">
+              <p>And of course, we have map, filter and reduce</p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Okay, Patterns</h1>
+            <ul>
+                <li class="fragment">Iterable / Collections</li>
+                <li class="fragment">Iterator / Consumers of collections</li>
+            </ul>
+
+            <aside class="notes">
+              <p>We saw the common mechanics of a loop</p>
+              <p>Expressed in a few different ways</p>
+              <p>These decompose into Iterable/Iterator</p>
+              <p>This may be obvious, but I like first principles</p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Okay, Patterns</h1>
+
+<pre><code>
+  // an iterable
+  const theIterable = [1,2,3]
+
+  // an iterator
+  theIterable.forEach(el => console.log(el))
+
+</code></pre>
+
+            <aside class="notes">
+              <p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Thus Spoke TC39</h1>
+
+            <p>Some Iterators...</p>
+
+            <ul>
+                <li class="fragment">for-of</li>
+                <li class="fragment">...spread</li>
+                <li class="fragment">destructuring assignment</li>
+            </ul>
+
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>for-of</h1>
+
+<pre><code>
+  // an iterator
+  for(let char of theIterable) {
+    console.log(char)
+  }
+
+</code></pre>
+
+
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>The Spread Operator</h1>
+
+<pre><code>
+  // an iterator
+  [...theIterable]
+
+</code></pre>
+
+
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Destructuring Assignment</h1>
+
+<pre><code>
+  // an iterator
+  {these, are, peices, of} = theIterable
+
+</code></pre>
+
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Comprehensions</h1>
+
+            <p>The future is in the future</p>
+
+<pre><code>
+  // array comprehension
+  [for (i of [ 1, 2, 3 ]) i*i ]
+
+  // generator comprehension
+  (for (i of [ 1, 2, 3 ]) i*i )
+
+</code></pre>
+
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Thus Spoke TC39</h1>
+
+            <p>Some Iterables...</p>
+
+            <ul>
+                <li class="fragment">String</li>
+                <li class="fragment">Array</li>
+                <li class="fragment">Set</li>
+                <li class="fragment">Map</li>
+                <li class="fragment">* Generators</li>
+            </ul>
+
+            <aside class="notes">
+              <p>Generators are both Iterable, and an Iterator</p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Strings</h1>
+
+<pre><code>
+  // an iterable
+  const theIterable = 'this is iterable'
+
+  // an iterator
+  for(let char of theIterable) {
+    console.log(char)
+  }
+
+  // an iterator
+  const chars = [...theIterable]
+
+</code></pre>
+
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Arrays</h1>
+
+<pre><code>
+  // an iterable
+  const theIterable = ['this', 'is', 'iterable']
+
+  // an iterator
+  for(let words of theIterable) {
+    console.log(words)
+  }
+
+  // an iterator
+  const sentence = [...theIterable]
+
+</code></pre>
+
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Sets</h1>
+
+<pre><code>
+ 
+  // an iterable
+  const theIterable = new Set()
+  theIterable.add(1)
+  theIterable.add(2)
+  theIterable.add(3)
+
+  // an iterator
+  for(let words of theIterable) {
+    console.log(words)
+  }
+
+  // an iterator
+  const sentence = [...theIterable]
+
+</code></pre>
+
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Maps</h1>
+
+<pre><code>
+ 
+  // an iterable
+  const theIterable = new Map()
+  theIterable.add('one', 1)
+  theIterable.add('two', 2)
+  theIterable.add('three', 3)
+
+  // an iterator
+  for(let words of theIterable) {
+    console.log(words)
+  }
+
+  // an iterator
+  const sentence = [...theIterable]
+
+</code></pre>
+
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Generators</h1>
+
+<pre><code>
+ 
+  // an iterable
+  const maker =  function* () {
+    let index = 0
+
+    while(index < 3) {
+      yield index++
     }
   }
-}
-          </code></pre>
-          <p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-        </section>
 
-        <section>
-          <h2>Marvelous List</h2>
-          <ul>
-            <li>No order here</li>
-            <li>Or here</li>
-            <li>Or here</li>
-            <li>Or here</li>
-          </ul>
-        </section>
+  const theIterable = maker()
 
-        <section>
-          <h2>Fantastic Ordered List</h2>
-          <ol>
-            <li>One is smaller than...</li>
-            <li>Two is smaller than...</li>
-            <li>Three!</li>
-          </ol>
-        </section>
+  // an iterator
+  const nums = [...theIterable]
 
-        <section>
-          <h2>Tabular Tables</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Value</th>
-                <th>Quantity</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Apples</td>
-                <td>$1</td>
-                <td>7</td>
-              </tr>
-              <tr>
-                <td>Lemonade</td>
-                <td>$2</td>
-                <td>18</td>
-              </tr>
-              <tr>
-                <td>Bread</td>
-                <td>$3</td>
-                <td>2</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+</code></pre>
 
-        <section>
-          <h2>Clever Quotes</h2>
-          <p>
-            These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-            &ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-          </p>
-          <blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-            &ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-            reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-          </blockquote>
-        </section>
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
 
-        <section>
-          <h2>Intergalactic Interconnections</h2>
-          <p>
-            You can link between slides internally,
-            <a href="#/2/3">like this</a>.
-          </p>
-        </section>
+          <section>
+            <h1>Think in Iterables</h1>
 
-        <section>
-          <h2>Speaker View</h2>
-          <p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-          <p>Press the <em>S</em> key to try it out.</p>
+            <p>They are a typeclass</p>
 
-          <aside class="notes">
-            Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-          </aside>
-        </section>
+<pre><code>
+  const anIterable = 'I belong to the class of Iterables'
+  const also = ['am', 'iterable']
 
-        <section>
-          <h2>Export to PDF</h2>
-          <p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-          <iframe src="//www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-        </section>
+  for(i of anIterable) {
+    console.log(i)
+  }
 
-        <section>
-          <h2>Global State</h2>
-          <p>
-            Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-            will be added as a class to the document element when the slide is open. This lets you
-            apply broader style changes, like switching the page background.
-          </p>
-        </section>
+  for(i of also) {
+    console.log(i)
+  }
 
-        <section data-state="customevent">
-          <h2>State Events</h2>
-          <p>
-            Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-          </p>
-          <pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-  console.log( '"customevent" has fired' );
-} );
-          </code></pre>
-        </section>
+</code></pre>
 
-        <section>
-          <h2>Take a Moment</h2>
-          <p>
-            Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-          </p>
-        </section>
+            <aside class="notes">
+            </aside>
+          </section>
 
-        <section>
-          <h2>Much more</h2>
-          <ul>
-            <li>Right-to-left support</li>
-            <li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-            <li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-            <li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-            <li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-          </ul>
-        </section>
+          <section>
+            <h1>Iterator Protocol</h1>
+          </section>
 
-        <section style="text-align: left;">
-          <h1>THE END</h1>
-          <p>
-            - <a href="http://slides.com">Try the online editor</a> <br>
-            - <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-          </p>
-        </section>
+          <section>
+            <h1>Iterator Protocol</h1>
+
+            <blockquote>
+              An object is an iterator when it knows how to access items from
+              a collection one at a time, while keeping track of its current
+              position within that sequence
+            </blockquote>
+
+
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Let's make an Iterator</h1>
+
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Iterable Protocol</h1>
+
+            <p>[Symbol.iterator]</p>
+
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Let's make an Iterable</h1>
+
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
 
       </div>
 
