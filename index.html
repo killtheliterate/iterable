@@ -85,7 +85,6 @@
 
             <aside class="notes">
               <p>Loops began with Ada Lovelace. Bernoulli numbers and the analytical engine.</p>
-              <p>They've obviously evolved, though the construct remains relatively unchanged</p>
               <a>https://programmers.stackexchange.com/questions/149465/who-created-the-ideas-of-the-first-loop-constructs</a>
             </aside>
           </section>
@@ -103,6 +102,8 @@
 </code></pre>
 
             <aside class="notes">
+              <p>This is a loop described in Algol 60</p>
+              <p>They've obviously evolved, though the construct remains relatively unchanged</p>
             </aside>
           </section>
 
@@ -111,6 +112,9 @@
             <p>...at least sometimes</p>
 
             <aside class="notes">
+              <p>Let's talk about the syntax and mechancis of loops in JS</p>
+              <p>We're probably familiar with looping</p>
+              <p>Let's remind ourselves of what they are</p>
             </aside>
           </section>
 
@@ -130,7 +134,9 @@
 
             <aside class="notes">
               <p>Ancient and venerated</p>
-              <p>Obviously, problems</p>
+              <p>This exists in many languages</p>
+              <p>Comfort</p>
+              <p>Obviously, problems! Scope</p>
             </aside>
           </section>
 
@@ -149,7 +155,8 @@
 </code></pre>
 
             <aside class="notes">
-              <p></p>
+              <p>A bit higher level is the for-in loop</p>
+              <p>Familiar syntax, less how, more what</p>
             </aside>
           </section>
 
@@ -171,7 +178,8 @@
 </code></pre>
 
             <aside class="notes">
-              <p></p>
+              <p>for-in is problematic</p>
+              <p>common JS structs don't distinguish between what you want and props</p>
             </aside>
           </section>
 
@@ -192,6 +200,8 @@
 
             <aside class="notes">
               <p>And of course, we have map, filter and reduce</p>
+              <p>Again, more of the what than the how</p>
+              <p>Higher level, more abstract, better</p>
             </aside>
           </section>
 
@@ -223,7 +233,8 @@
 </code></pre>
 
             <aside class="notes">
-              <p>
+              <p>Let's examine this pattern in more detail</p>
+              <p>We have what is essentially a list, and a consumer</p>
             </aside>
           </section>
 
@@ -239,7 +250,9 @@
             </ul>
 
             <aside class="notes">
-              <p></p>
+              <p>TC39 is the standards body</p>
+              <p>They've decided to add these semantics to the lang</p>
+              <p>Let's examine new iterators</p>
             </aside>
           </section>
 
@@ -256,7 +269,7 @@
 
 
             <aside class="notes">
-              <p></p>
+              <p>Let's examine new iterators</p>
             </aside>
           </section>
 
@@ -285,7 +298,8 @@
 </code></pre>
 
             <aside class="notes">
-              <p></p>
+              <p>More what, less how</p>
+              <p>Since the semantics are standards now</p>
             </aside>
           </section>
 
@@ -318,11 +332,14 @@
                 <li class="fragment">Array</li>
                 <li class="fragment">Set</li>
                 <li class="fragment">Map</li>
-                <li class="fragment">* Generators</li>
+                <li class="fragment">Generators</li>
             </ul>
 
             <aside class="notes">
+              <p>Let's examine how some iterables are used</p>
               <p>Generators are both Iterable, and an Iterator</p>
+              <p>provide next interface: iterator</p>
+              <p>can be consumed by iterator: iterable</p>
             </aside>
           </section>
 
@@ -468,22 +485,24 @@
 </code></pre>
 
             <aside class="notes">
+              <p>We can codify these patterns in protocols</p>
             </aside>
           </section>
 
           <section>
-            <h1>Iterator Protocol</h1>
+            <h1>So, Protocols</h1>
           </section>
 
           <section>
             <h1>Iterator Protocol</h1>
+
+            <p>next()</p>
 
             <blockquote>
               An object is an iterator when it knows how to access items from
               a collection one at a time, while keeping track of its current
               position within that sequence
             </blockquote>
-
 
             <aside class="notes">
               <p></p>
@@ -501,7 +520,7 @@
           <section>
             <h1>Iterable Protocol</h1>
 
-            <p>[Symbol.iterator]</p>
+            <p>Symbol.iterator</p>
 
             <aside class="notes">
               <p></p>
@@ -510,6 +529,38 @@
 
           <section>
             <h1>Let's make an Iterable</h1>
+
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Lazy Lists</h1>
+
+            <p>Let's mess with infinity</p>
+
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Lazy Lists</h1>
+
+            <ul>
+                <li class="fragment">Event streams</li>
+                <li class="fragment">Websockets</li>
+                <li class="fragment">...essentially, unknown lengths</li>
+            </ul>
+
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Thanks!</h1>
 
             <aside class="notes">
               <p></p>
