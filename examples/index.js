@@ -1,2 +1,2 @@
 require('babel/register')
-require('./linked_lists')
+require('./src/stream')

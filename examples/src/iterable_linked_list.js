@@ -1,15 +1,15 @@
-const List = function () {
+const IterableList = function () {
   return {
     values: {value: null, rest: null},
 
-    add: function (value) {
+    add (value) {
       const traverse = (values) => {
 
         // initialize empty list
         if (values.value === null) {
           this.values.value = value
 
-          return this
+            return this
         } else if (values.rest === null) {
           values.rest = {
             value: value,
@@ -29,19 +29,18 @@ const List = function () {
       let index = this.values;
 
       return {
-        next() {
+        next () {
           const current = index
 
           if (current === null) {
             return {done: true}
           } else {
             index = current.rest
-            return {done: false, value: current.value}
+              return {done: false, value: current.value}
           }
         }
       }
     }
-
   }
 }
 
@@ -51,18 +50,15 @@ list.add(1)
 list.add(2)
 list.add(3)
 
-console.log('original', JSON.stringify(list.values))
-
 const iter = list[Symbol.iterator]()
 
-console.log('next', iter.next())
-console.log('next', iter.next())
-console.log('next', iter.next())
-console.log('next', iter.next())
+console.log('Iterator', iter.next())
+console.log('Iterator', iter.next())
+console.log('Iterator', iter.next())
+console.log('Iterator', iter.next())
 
-// protocols bae
 for(let i of list) {
   console.log('for-of', i)
 }
 
-console.log('spread', [...list])
+console.log('spread operator', [...list])
