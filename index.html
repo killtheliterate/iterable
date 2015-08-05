@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="css/theme/moon.css" id="theme">
 
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -70,27 +70,28 @@
             </ul>
 
             <aside class="notes">
-              <p>We take this for granted, unless we're computer scientists</p>
-              <p>The ability to repeat is necessary to be Turing complete</p>
-              <p>In a sense, the description of how to perform a loop is just syntax</p>
+              * first principles<br>
+              * We take this for granted, unless we're computer scientists<br>
+              * because looping is fundamental, we're primarily concerned with syntax<br>
             </aside>
           </section>
 
           <section>
-            <h1>First...</h1>
+            <h1>The First Iteration</h1>
 
             <p>Ada Lovelace and the Analytical Engine</p>
 
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Ada_Lovelace.jpg" alt="Ada Lovelace.jpg" height="480" width="302">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Ada_Lovelace.jpg" alt="Ada Lovelace.jpg" height="400">
 
             <aside class="notes">
-              <p>Loops began with Ada Lovelace. Bernoulli numbers and the analytical engine.</p>
-              <a>https://programmers.stackexchange.com/questions/149465/who-created-the-ideas-of-the-first-loop-constructs</a>
+              * Loops began with Ada Lovelace. Bernoulli numbers and the analytical engine.<br>
+              * This wasn't software, but it was programming.<br>
+              * https://programmers.stackexchange.com/questions/149465/who-created-the-ideas-of-the-first-loop-constructs
             </aside>
           </section>
 
           <section>
-            <h1>And Some Other Things...</h1>
+            <h1>Primordial Software</h1>
 
 <pre><code>
   ****** Algol 60 ******
@@ -102,48 +103,101 @@
 </code></pre>
 
             <aside class="notes">
-              <p>This is a loop described in Algol 60</p>
-              <p>They've obviously evolved, though the construct remains relatively unchanged</p>
             </aside>
           </section>
 
           <section>
-            <h1>You're probably a JS developer</h1>
-            <p>...at least sometimes</p>
+            <h1>Primordial Software</h1>
+
+<pre><code>
+  * COBOL
+  IDENTIFICATION DIVISION.
+         PROGRAM-ID. Display-Triangle.
+   
+         DATA DIVISION.
+         WORKING-STORAGE SECTION.
+         01  Outer-Counter PIC 9.
+         01  Inner-Counter PIC 9. 
+   
+         PROCEDURE DIVISION.
+         PERFORM VARYING Outer-Counter FROM 1 BY 1 UNTIL 5 < Outer-Counter
+   
+             PERFORM VARYING Inner-Counter FROM 1 BY 1
+                     UNTIL Outer-Counter < Inner-Counter
+                 DISPLAY "*" NO ADVANCING
+             END-PERFORM
+   
+             DISPLAY "" *> Output a newline
+         END-PERFORM
+   
+         GOBACK
+         .
+
+</code></pre>
 
             <aside class="notes">
-              <p>Let's talk about the syntax and mechancis of loops in JS</p>
-              <p>We're probably familiar with looping</p>
-              <p>Let's remind ourselves of what they are</p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Primordial Software</h1>
+
+<pre><code>
+  'Visual Basic
+  Public OutConsole As Scripting.TextStream
+  For i = 0 To 4
+      For j = 0 To i
+          OutConsole.Write "*"
+      Next j 
+      OutConsole.WriteLine
+  Next i
+
+</code></pre>
+
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h1>It's at least 1995</h1>
+
+            <ul>
+              <li class="fragment">...and you're probably a JS Developer</li>
+              <li class="fragment">...some of the time</li>
+            </ul>
+
+            <aside class="notes">
+              Different langs have different syntax<br>
+              Let's use the lens of JS to look at loops<br>
+              JS has a few looping constructs you're probably familiar with<br>
             </aside>
           </section>
 
           <section>
             <h1>The Ancient</h1>
 
-            <p>for loops</p>
+            <p>for</p>
 
 <pre><code>
   const theThing = ['hello', 'humans', 'in', 'this', 'room']
 
   for(let i = 0; i < theThing.length; i = i + 1) {
-    console.log(theThing[i])
+    console.log(theThing[i]) // hello, humans...
   }
 
 </code></pre>
 
             <aside class="notes">
-              <p>Ancient and venerated</p>
-              <p>This exists in many languages</p>
-              <p>Comfort</p>
-              <p>Obviously, problems! Scope</p>
+              Ancient and venerated, Similar to many other langs<br>
+              Have to track STATE of the loop, terminated at CONDITION<br>
+              Obviously, problems! scope, state<br>
             </aside>
           </section>
 
           <section>
             <h1>Goodish Ideas</h1>
 
-            <p>for-in loops</p>
+            <p>for-in</p>
 
 <pre><code>
   const otherThing = ['hello', 'humans', 'in', 'this', 'room']
@@ -155,73 +209,74 @@
 </code></pre>
 
             <aside class="notes">
-              <p>A bit higher level is the for-in loop</p>
-              <p>Familiar syntax, less how, more what</p>
+              Higher level, no state<br>
+              Less how, more what<br>
             </aside>
           </section>
 
           <section>
             <h1>Badish Ideas</h1>
 
-            <p>hehe</p>
+            <p>...iterate on all enumerable properties</p>
 
 <pre><code>
-  const otherThing = ['hello', 'humans', 'in', 'this', 'room']
+  const theCollection = ['hello', 'humans', 'in', 'this', 'room']
 
-  otherThing.justLeavingThisHere = 'BOOOOOOOOOO'
+  theCollection.alsoEnumerable = 'enumerated'
 
-  // hello, humans... BOOOOOOOOOO
   for(let i in otherThing) {
-    console.log(otherThing[i])
+    console.log(otherThing[i]) // hello, humans... enumerated
   }
 
 </code></pre>
 
             <aside class="notes">
-              <p>for-in is problematic</p>
-              <p>common JS structs don't distinguish between what you want and props</p>
+              the collection types we're used to don't distinguish<br>
+              for-in enumerates all props on object<br>
+              which is to say, it enumerates all enumerable properties<br>
+              scope continues to be a problem<br>
             </aside>
           </section>
 
           <section>
             <h1>Better Ideas</h1>
 
-            <p></p>
+            <p>Array#applicatives</p>
 
 <pre><code>
-  const otherThing = ['hello', 'humans', 'in', 'this', 'room']
+  const say = ['hello', 'humans', 'in', 'this', 'room']
 
-  otherThing.justLeavingThisHere = 'BOOOOOOOOOO'
+  say.justLeavingThisHere = 'boo'
 
-  // hello, humans... no booo
+  // hello, humans... no booooooooooooooooooooooooo
   otherThing.forEach(el => console.log(el))
 
 </code></pre>
 
             <aside class="notes">
-              <p>And of course, we have map, filter and reduce</p>
-              <p>Again, more of the what than the how</p>
-              <p>Higher level, more abstract, better</p>
+              And of course, we have map, filter and reduce<br>
+              Only arrays, strictness<br>
             </aside>
           </section>
 
           <section>
-            <h1>Okay, Patterns</h1>
+            <h1>Extract the Patterns</h1>
+
+            <p>Recognize the consistent properties</p>
+
             <ul>
-                <li class="fragment">Iterable / Collections</li>
-                <li class="fragment">Iterator / Consumers of collections</li>
+                <li class="fragment">A list of things (Iterable)</li>
+                <li class="fragment">A thing that steps through the list (Iterator)</li>
             </ul>
 
             <aside class="notes">
-              <p>We saw the common mechanics of a loop</p>
-              <p>Expressed in a few different ways</p>
-              <p>These decompose into Iterable/Iterator</p>
-              <p>This may be obvious, but I like first principles</p>
+              Identify the essence<br>
+              These decompose into Iterable/Iterator<br>
             </aside>
           </section>
 
           <section>
-            <h1>Okay, Patterns</h1>
+            <h1>Extract the Patterns</h1>
 
 <pre><code>
   // an iterable
@@ -233,26 +288,25 @@
 </code></pre>
 
             <aside class="notes">
-              <p>Let's examine this pattern in more detail</p>
-              <p>We have what is essentially a list, and a consumer</p>
+              Given these commonalities, TC39 identifies Iterable/Iterator<br>
             </aside>
           </section>
 
           <section>
             <h1>Thus Spoke TC39</h1>
 
-            <p>Some Iterators...</p>
+            <p>Builtin Iterators<p>
 
             <ul>
                 <li class="fragment">for-of</li>
                 <li class="fragment">...spread</li>
-                <li class="fragment">destructuring assignment</li>
+                <li class="fragment">{destructuring, assignment}</li>
             </ul>
 
             <aside class="notes">
-              <p>TC39 is the standards body</p>
-              <p>They've decided to add these semantics to the lang</p>
-              <p>Let's examine new iterators</p>
+              TC39 is the standards body<br>
+              Iterable/Iterator are part of JS now<br>
+              We can still talk about the old as Iterators, just not technically<br>
             </aside>
           </section>
 
@@ -260,46 +314,67 @@
             <h1>for-of</h1>
 
 <pre><code>
+  // an iterable
+  const theIterable = 'a string is a list of characters'
+
   // an iterator
+  // access the member directly
+  // instead of by index
   for(let char of theIterable) {
     console.log(char)
   }
 
 </code></pre>
 
-
             <aside class="notes">
-              <p>Let's examine new iterators</p>
+              Looks similar to for-in<br>
+              access member directly<br>
             </aside>
           </section>
 
           <section>
-            <h1>The Spread Operator</h1>
+            <h1>...spread</h1>
 
 <pre><code>
+  // an iterable
+  const theIterable = ['an', 'array', 'is', 'iterable'] 
+
   // an iterator
-  [...theIterable]
+  const newArray = [...theIterable]
+
+  // arguments is iterable
+  const fn = (...args) => { args.forEach(el => console.log(el)) }
+
+  fn(1, 2, 3)
 
 </code></pre>
 
 
             <aside class="notes">
-              <p></p>
+              Looks alot like [].map()<br>
+              The arguments object can be passed to an iterator<br>
             </aside>
           </section>
 
           <section>
-            <h1>Destructuring Assignment</h1>
+            <h1>{destructuring, assignment}</h1>
 
 <pre><code>
+  // an iterable
+  const theCollection = ['hello', 'humans', 'in', 'this', 'room']
+
   // an iterator
-  {these, are, peices, of} = theIterable
+  let [these, are, pieces, ...iterable] = theCollection
+
+  console.log(these) // 'hello'
+  console.log(iterable) // ['this', 'room']
 
 </code></pre>
 
             <aside class="notes">
-              <p>More what, less how</p>
-              <p>Since the semantics are standards now</p>
+              Also looks alot like [].map()<br>
+              Composable with ...spread to collect the rest<br>
+              Notably, objects can be destructured, but that's outside this scope<br>
             </aside>
           </section>
 
@@ -310,22 +385,42 @@
 
 <pre><code>
   // array comprehension
-  [for (i of [ 1, 2, 3 ]) i*i ]
+  const newArray = [for (i of [ 1, 2, 3 ]) i * i ]
+  console.log(newArray) // 1, 4, 9
 
   // generator comprehension
-  (for (i of [ 1, 2, 3 ]) i*i )
+  const newGen = (for (i of [ 1, 2, 3 ]) i * i )
+  console.log(newGen.next()) // {value: 1, done: false}
+  console.log(newGen.next()) // {value: 4, done: false}
 
 </code></pre>
 
             <aside class="notes">
-              <p></p>
+              I can't wait, Also like [].map()<br>
+              Another way to extract pieces of a list<br>
+              Check it out in the Babel REPL<br>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Iterators unwrap collections</h1>
+
+            <ul>
+              <li class="fragment">Take a list</li>
+              <li class="fragment">Operate on each element</li>
+            </ul>
+
+            <aside class="notes">
+              Looking at these builtins, it looks like we extract elements<br>
+              Once we have an element, we can project it<br>
+              Or we can transform it<br>
             </aside>
           </section>
 
           <section>
             <h1>Thus Spoke TC39</h1>
 
-            <p>Some Iterables...</p>
+            <p>Builtin Iterables</p>
 
             <ul>
                 <li class="fragment">String</li>
@@ -336,10 +431,9 @@
             </ul>
 
             <aside class="notes">
-              <p>Let's examine how some iterables are used</p>
-              <p>Generators are both Iterable, and an Iterator</p>
-              <p>provide next interface: iterator</p>
-              <p>can be consumed by iterator: iterable</p>
+              All of these builtins describe how to traverse themselves<br>
+              That means they are consumable by any iterator<br>
+              Special case: Generators are both an Iterable and an Iterator<br>
             </aside>
           </section>
 
@@ -352,7 +446,7 @@
 
   // an iterator
   for(let char of theIterable) {
-    console.log(char)
+    console.log(char) // each char
   }
 
   // an iterator
