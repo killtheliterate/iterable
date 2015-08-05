@@ -44,7 +44,7 @@ const IterableList = function () {
   }
 }
 
-const list = List()
+const list = IterableList()
 
 list.add(1)
 list.add(2)

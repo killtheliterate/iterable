@@ -51,6 +51,8 @@ list.add(1)
 list.add(2)
 list.add(3)
 
+console.log(list)
+
 const iter = makeLinkedListIterator(list)
 
 console.log('Iterator', iter.next())
