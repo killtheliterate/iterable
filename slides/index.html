@@ -179,8 +179,10 @@
             <p>for</p>
 
 <pre><code>
+  // loopable
   const theThing = ['hello', 'humans', 'in', 'this', 'room']
 
+  // the loop
   for(let i = 0; i < theThing.length; i = i + 1) {
     console.log(theThing[i]) // hello, humans...
   }
@@ -190,7 +192,8 @@
             <aside class="notes">
               Ancient and venerated, Similar to many other langs<br>
               Have to track STATE of the loop, terminated at CONDITION<br>
-              Obviously, problems! scope, state<br>
+              Obviously, problems! STATE<br>
+              We have to be very verbose about what's happening in our loop<br>
             </aside>
           </section>
 
@@ -200,8 +203,10 @@
             <p>for-in</p>
 
 <pre><code>
+  // loopable
   const otherThing = ['hello', 'humans', 'in', 'this', 'room']
 
+  // the loop
   for(let i in otherThing) {
     console.log(otherThing[i]) // hello, humans...
   }
@@ -209,6 +214,7 @@
 </code></pre>
 
             <aside class="notes">
+              we use the counter to access the loopable<br>
               Higher level, no state<br>
               Less how, more what<br>
             </aside>
@@ -220,10 +226,13 @@
             <p>...iterate on all enumerable properties</p>
 
 <pre><code>
+  // loopable
   const theCollection = ['hello', 'humans', 'in', 'this', 'room']
 
+  // shwhoops
   theCollection.alsoEnumerable = 'enumerated'
 
+  // the loop
   for(let i in otherThing) {
     console.log(otherThing[i]) // hello, humans... enumerated
   }
@@ -244,12 +253,14 @@
             <p>Array#applicatives</p>
 
 <pre><code>
+  // loopable
   const say = ['hello', 'humans', 'in', 'this', 'room']
 
+  // weird...
   say.justLeavingThisHere = 'boo'
 
-  // hello, humans... no booooooooooooooooooooooooo
-  otherThing.forEach(el => console.log(el))
+  // the loop
+  otherThing.forEach(el => console.log(el)) // hello, humans...
 
 </code></pre>
 
@@ -260,9 +271,7 @@
           </section>
 
           <section>
-            <h1>Extract the Patterns</h1>
-
-            <p>Recognize the consistent properties</p>
+            <h1>Extract the Patterns...</h1>
 
             <ul>
                 <li class="fragment">A list of things (Iterable)</li>
@@ -270,7 +279,7 @@
             </ul>
 
             <aside class="notes">
-              Identify the essence<br>
+              Identify the essence, recognize the similar props<br>
               These decompose into Iterable/Iterator<br>
             </aside>
           </section>
@@ -279,11 +288,11 @@
             <h1>Extract the Patterns</h1>
 
 <pre><code>
-  // an iterable
+  // loopable
   const theIterable = [1,2,3]
 
-  // an iterator
-  theIterable.forEach(el => console.log(el))
+  // the loop
+  theIterable.forEach(el => console.log(el)) // 1, 2, 3
 
 </code></pre>
 
@@ -309,6 +318,7 @@
               We can still talk about the old as Iterators, just not technically<br>
             </aside>
           </section>
+
 
           <section>
             <h1>for-of</h1>
@@ -348,7 +358,6 @@
   fn(1, 2, 3)
 
 </code></pre>
-
 
             <aside class="notes">
               Looks alot like [].map()<br>
@@ -403,21 +412,6 @@
           </section>
 
           <section>
-            <h1>Iterators unwrap collections</h1>
-
-            <ul>
-              <li class="fragment">Take a list</li>
-              <li class="fragment">Operate on each element</li>
-            </ul>
-
-            <aside class="notes">
-              Looking at these builtins, it looks like we extract elements<br>
-              Once we have an element, we can project it<br>
-              Or we can transform it<br>
-            </aside>
-          </section>
-
-          <section>
             <h1>Thus Spoke TC39</h1>
 
             <p>Builtin Iterables</p>
@@ -431,6 +425,7 @@
             </ul>
 
             <aside class="notes">
+              Collection types<br>
               All of these builtins describe how to traverse themselves<br>
               That means they are consumable by any iterator<br>
               Special case: Generators are both an Iterable and an Iterator<br>
@@ -452,10 +447,12 @@
   // an iterator
   const chars = [...theIterable]
 
+  console.log(chars) // ['t','h','i','s',' '...]
+
 </code></pre>
 
             <aside class="notes">
-              <p></p>
+              Since they are iterable, they are consumable by iterators<br>
             </aside>
           </section>
 
@@ -468,16 +465,31 @@
 
   // an iterator
   for(let words of theIterable) {
-    console.log(words)
+    console.log(words) // 'this' 'is'...
   }
 
   // an iterator
   const sentence = [...theIterable]
+  console.log(sentence) // ['this', 'is', 'iterable']
 
 </code></pre>
 
             <aside class="notes">
-              <p></p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Sets</h1>
+
+            <blockquote>
+              The Set object lets you store unique values of any type, whether
+              primitive values or object references.
+            </blockquote>
+
+            <aside class="notes">
+              Sets are very similar to arrays<br>
+              Like in math, Sets cannot have duplicate members<br>
+              The constructor accepts an iterable, and will make a Set with it<br>
             </aside>
           </section>
 
@@ -485,25 +497,38 @@
             <h1>Sets</h1>
 
 <pre><code>
- 
   // an iterable
   const theIterable = new Set()
   theIterable.add(1)
-  theIterable.add(2)
   theIterable.add(3)
+  theIterable.add(2)
+  theIterable.add(2)
 
   // an iterator
-  for(let words of theIterable) {
-    console.log(words)
+  for(let num of theIterable) {
+    console.log(num) // 1, 3, 2
   }
 
   // an iterator
-  const sentence = [...theIterable]
+  const numbers = [...theIterable]
+  console.log(numbers) // [1,3,2]
 
 </code></pre>
 
+          </section>
+
+          <section>
+            <h1>Maps</h1>
+
+            <blockquote>
+              The Map object is a simple key/value map. Any value (both
+              objects and primitive values) may be used as either a key or a
+              value.
+            </blockquote>
+
             <aside class="notes">
-              <p></p>
+              Maps are like POJOs, but they guarantee order<br>
+              The constructor can take an iterable, and make a Map of it<br>
             </aside>
           </section>
 
@@ -511,25 +536,39 @@
             <h1>Maps</h1>
 
 <pre><code>
- 
   // an iterable
   const theIterable = new Map()
-  theIterable.add('one', 1)
-  theIterable.add('two', 2)
-  theIterable.add('three', 3)
+  theIterable.set('one', 1)
+  theIterable.set('three', 3)
+  theIterable.set('two', 2)
 
   // an iterator
-  for(let words of theIterable) {
-    console.log(words)
+  for(let numTuple of theIterable) {
+    console.log(numTuple) // ['one', 1]...
   }
 
   // an iterator
-  const sentence = [...theIterable]
+  const tuples = [...theIterable]
+  console.log(tuples) // [['one', 1]...]
 
 </code></pre>
 
+          </section>
+
+          <section>
+            <h1>Generators</h1>
+
+            <blockquote>
+              Generators are functions which can be exited and later 
+              re-entered. Their context (variable bindings) will be saved
+              across re-entrances.
+            </blockquote>
+
             <aside class="notes">
-              <p></p>
+              Both Iterable and Iterator<br>
+              You access next member using "next"<br>
+              This is what makes it an iterator, which should become clear 
+              later<br>
             </aside>
           </section>
 
@@ -537,36 +576,83 @@
             <h1>Generators</h1>
 
 <pre><code>
- 
   // an iterable
-  const maker =  function* () {
-    let index = 0
+  const maker = function* () {
+    yield 1
+    yield 2
+    yield 3
+  }
+
+  const theIterable = maker() // this gives us back a generator object
+  const first = theIterable.next() // which we can step through
+  console.log(first) // {value: 1, done: false}
+
+</code></pre>
+
+            <aside class="notes">
+              yield keyword exits the function<br>
+              execution resumes where the yield left off<br>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Generators</h1>
+
+<pre><code>
+  // an iterable
+  const maker = function* () {
+    let index = 0 // the mutated state will be persisted
 
     while(index < 3) {
       yield index++
     }
   }
 
-  const theIterable = maker()
+  const theIterable = maker() // this gives us back a generator object
 
-  // an iterator
-  const nums = [...theIterable]
+  // which we can operate on with an iterator
+  // this works because the generator is finite
+  const nums = [...theIterable] // [0,1,2]
 
 </code></pre>
 
             <aside class="notes">
-              <p></p>
+              It's notable that using spread transforms the values into normal stuff<br>
+            </aside>
+          </section>
+
+          <section>
+            <h1>Generators</h1>
+
+<pre><code>
+  const maker = function* () {
+    let first = yield
+    let second = yield first
+    let third = yield second
+    yield
+  }
+
+  const echo = maker()
+
+  console.log(echo.next(1))// {value: null, done: false}
+  console.log(echo.next(500)) // {value: 500, done: false}
+  console.log(echo.next('sup')) // {value: 'sup', done: false}
+
+</code></pre>
+
+            <aside class="notes">
+              We can push values into Generators<br>
+              If we assign the last yield to a variable, that variable becomes
+              whatever we push with next()<br>
             </aside>
           </section>
 
           <section>
             <h1>Think in Iterables</h1>
 
-            <p>They are a typeclass</p>
-
 <pre><code>
-  const anIterable = 'I belong to the class of Iterables'
-  const also = ['am', 'iterable']
+  const anIterable = 'I am iterable'
+  const also = ['so', 'am', 'i']
 
   for(i of anIterable) {
     console.log(i)
@@ -579,18 +665,30 @@
 </code></pre>
 
             <aside class="notes">
-              <p>We can codify these patterns in protocols</p>
+              </p>
+              If it is an Iterable, you can consume it with an iterator</p>
+              We can codify these patterns in protocols</p>
             </aside>
           </section>
 
           <section>
-            <h1>So, Protocols</h1>
+            <h1>Protocol is the word</h1>
+
+            <ul>
+              <li class="fragment">AKA an interface</li>
+              <li class="fragment">...I'm going with typeclass</li>
+            </ul>
+
+            <aside class="notes">
+              The iterator protocol describes an interface</p>
+              I think it makes something part of a typeclass</p>
+            </aside>
           </section>
 
           <section>
             <h1>Iterator Protocol</h1>
 
-            <p>next()</p>
+            <p>{ }.next()</p>
 
             <blockquote>
               An object is an iterator when it knows how to access items from
@@ -599,32 +697,64 @@
             </blockquote>
 
             <aside class="notes">
-              <p></p>
+              "how do i loop?"<br>
+              this is why a generator is both iterable and iterator<br>
             </aside>
           </section>
 
           <section>
-            <h1>Let's make an Iterator</h1>
+            <h1>Let's Make an Iterator</h1>
+
+            <p>...for a linked list</p>
+
+<pre><code>
+  // this is what a linked list looks like
+  {val: 1, rest: {val: 2, rest: {val: 3, rest: {val: 4, rest: null}}}}
+
+  // basically an array
+  [1, 2, 3, 4]
+
+</code></pre>
 
             <aside class="notes">
-              <p></p>
+              quick aside about linked lists<br>
+              why are they useful? memory and known size<br>
+              collection types in FP are usually linked lists<br>
+              you walk them recursively<br>
             </aside>
           </section>
 
           <section>
             <h1>Iterable Protocol</h1>
 
-            <p>Symbol.iterator</p>
+            <p>[Symbol.iterator]</p>
+
+            <blockquote>
+              The iterable protocol allows JavaScript objects to define or
+              customize their iteration behavior, such as what values are
+              looped over in a for..of construct.
+            </blockquote>
 
             <aside class="notes">
-              <p></p>
+              when you define a constructor, give it this property<br>
             </aside>
           </section>
 
           <section>
             <h1>Let's make an Iterable</h1>
 
+            <p>...still a linked list</p>
+
+<pre><code>
+  // give our type an iteration protocol
+  const iterable = LinkedList()[Symbol.iterator] = () => // etc
+
+</code></pre>
+
             <aside class="notes">
+              we can make a linked list type that describes how it should be
+              walked<br>
+              this makes our type "iterable"<br>
               <p></p>
             </aside>
           </section>
@@ -632,15 +762,16 @@
           <section>
             <h1>Lazy Lists</h1>
 
-            <p>Let's mess with infinity</p>
+            <p>possible infinity</p>
 
             <aside class="notes">
-              <p></p>
             </aside>
           </section>
 
           <section>
             <h1>Lazy Lists</h1>
+
+            <p>What does it do?</p>
 
             <ul>
                 <li class="fragment">Event streams</li>
@@ -649,16 +780,18 @@
             </ul>
 
             <aside class="notes">
-              <p></p>
             </aside>
           </section>
 
           <section>
-            <h1>Thanks!</h1>
+            <h1>Loops on loops on loops</h1>
 
-            <aside class="notes">
-              <p></p>
-            </aside>
+            <p>It's about Iterables and Iterators</p>
+
+            <br />
+
+            <p>Garrett Dawson</p>
+            <p>@killtheliterate</p>
           </section>
 
       </div>
