@@ -64,9 +64,9 @@
             <h1>Loops Are Programming</h1>
 
             <ul>
-                <li class="fragment">Loops are a fundamental</li>
-                <li class="fragment">Without them... there is no program</li>
-                <li class="fragment">You need loops and variables to be a programming language</li>
+                <li class="">Loops are a fundamental</li>
+                <li class="">Without them... there is no program</li>
+                <li class="">You need loops and variables to be a programming language</li>
             </ul>
 
             <aside class="notes">
@@ -162,8 +162,9 @@
             <h1>It's at least 1995</h1>
 
             <ul>
-              <li class="fragment">...and you're probably a JS Developer</li>
-              <li class="fragment">...some of the time</li>
+              <li class="">...and you're probably a JS Developer</li>
+              <li class="">...some of the time</li>
+              <li class="">...so what do we already know?</li>
             </ul>
 
             <aside class="notes">
@@ -190,6 +191,7 @@
 </code></pre>
 
             <aside class="notes">
+              counter<br>
               Ancient and venerated, Similar to many other langs<br>
               Have to track STATE of the loop, terminated at CONDITION<br>
               Obviously, problems! STATE<br>
@@ -274,8 +276,8 @@
             <h1>Extract the Patterns...</h1>
 
             <ul>
-                <li class="fragment">A list of things (Iterable)</li>
-                <li class="fragment">A thing that steps through the list (Iterator)</li>
+                <li class="">A list of things (Iterable)</li>
+                <li class="">A thing that steps through the list (Iterator)</li>
             </ul>
 
             <aside class="notes">
@@ -307,9 +309,9 @@
             <p>Builtin Iterators<p>
 
             <ul>
-                <li class="fragment">for-of</li>
-                <li class="fragment">...spread</li>
-                <li class="fragment">{destructuring, assignment}</li>
+                <li class="">for-of</li>
+                <li class="">...spread</li>
+                <li class="">{destructuring, assignment}</li>
             </ul>
 
             <aside class="notes">
@@ -318,7 +320,6 @@
               We can still talk about the old as Iterators, just not technically<br>
             </aside>
           </section>
-
 
           <section>
             <h1>for-of</h1>
@@ -417,11 +418,11 @@
             <p>Builtin Iterables</p>
 
             <ul>
-                <li class="fragment">String</li>
-                <li class="fragment">Array</li>
-                <li class="fragment">Set</li>
-                <li class="fragment">Map</li>
-                <li class="fragment">Generators</li>
+                <li class="">String</li>
+                <li class="">Array</li>
+                <li class="">Set</li>
+                <li class="">Map</li>
+                <li class="">Generators</li>
             </ul>
 
             <aside class="notes">
@@ -666,8 +667,8 @@
 
             <aside class="notes">
               </p>
-              If it is an Iterable, you can consume it with an iterator</p>
-              We can codify these patterns in protocols</p>
+              If it is an Iterable, you can consume it with an iterator<br>
+              We can codify these patterns in protocols<br>
             </aside>
           </section>
 
@@ -675,13 +676,14 @@
             <h1>Protocol is the word</h1>
 
             <ul>
-              <li class="fragment">AKA an interface</li>
-              <li class="fragment">...I'm going with typeclass</li>
+              <li class="">AKA an interface</li>
+              <li class="">...I'm going with typeclass</li>
             </ul>
 
             <aside class="notes">
-              The iterator protocol describes an interface</p>
-              I think it makes something part of a typeclass</p>
+              abstract into a protocol<br>
+              The iterator protocol describes an interface<br>
+              I think it makes something part of a typeclass<br>
             </aside>
           </section>
 
@@ -706,6 +708,7 @@
             <h1>Let's Make an Iterator</h1>
 
             <p>...for a linked list</p>
+            <p>http://bit.ly/1OVllSX</p>
 
 <pre><code>
   // this is what a linked list looks like
@@ -744,6 +747,7 @@
             <h1>Let's make an Iterable</h1>
 
             <p>...still a linked list</p>
+            <p>http://bit.ly/1MVVXxN</p>
 
 <pre><code>
   // give our type an iteration protocol
@@ -755,7 +759,6 @@
               we can make a linked list type that describes how it should be
               walked<br>
               this makes our type "iterable"<br>
-              <p></p>
             </aside>
           </section>
 
@@ -763,6 +766,7 @@
             <h1>Lazy Lists</h1>
 
             <p>possible infinity</p>
+            <p>http://bit.ly/1DzRyhL</p>
 
             <aside class="notes">
             </aside>
@@ -774,9 +778,9 @@
             <p>What does it do?</p>
 
             <ul>
-                <li class="fragment">Event streams</li>
-                <li class="fragment">Websockets</li>
-                <li class="fragment">...essentially, unknown lengths</li>
+                <li class="">Event streams</li>
+                <li class="">Websockets</li>
+                <li class="">...essentially, unknown lengths</li>
             </ul>
 
             <aside class="notes">
